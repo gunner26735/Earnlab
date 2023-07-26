@@ -1,0 +1,24 @@
+
+.title{
+    font-size: 2em;
+    margin : 15% 0 0 100px;
+    float: left;
+    font-weight: bold;
+}
+
+.imgur{
+    height: 650px;
+    width: 500px;
+    float: right;
+    margin:50px 200px 0px 0px;
+}
+
+.modal-content , .modal-footer , .modal-body{
+    background-color: #212529;
+    color: whitesmoke;
+}
+
+.input{
+    background-color: #212529;
+    color: #099773;
+}
