@@ -1,14 +1,13 @@
 .detail{
     display: flex;
-    background: linear-gradient(90deg,#af7f5e,#ac7b58,#6d4c36);
+    background-color: #EE6C4D;
     flex-direction: column;
     font-size: x-large;
     row-gap: 20px;
     font-family: Bree Serif;
+    color: white;
 }
 
-.button{
-    float: right;
-    align-items:end;
-
+.donate{
+    text-align: right;
 }

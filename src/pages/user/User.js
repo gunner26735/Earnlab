@@ -1,8 +1,31 @@
 import "./user.css";
-
+import { useState } from "react";
+import { abi } from '../../contract/earnlab';
+const ethers = require("ethers");
 
 function User() {
+    //onst [indexId, setIndexId] = useState();
 
+    async function getTeamMemberCount() {
+
+        var tname = document.getElementById("rtname").value;
+        var tmem = document.getElementById("rtmem").value;
+        //console.log("OIIIII"+tname +" "+ tmem);
+        var arr_tmem = tmem.split(",");
+
+        //Connecting of Contract
+        const contractAddress = '0xdBC8258CBe9B1915702fB31fFA0aC5F695bDA90b';
+        const contractABI = abi;
+        const provider = new ethers.providers.Web3Provider(window.ethereum);
+
+        const contractRead = new ethers.Contract(
+            contractAddress,
+            contractABI,
+            provider
+        );
+        const count = await contractRead.TeamsCreated();
+        console.log(count + " : Current Team");
+    }
 
     return (
         <div className='home'>
@@ -24,23 +47,21 @@ function User() {
                         </div>
                         <div class="modal-body">
                             <div class="input-group mb-3">
-                                <span class="input-group-text" id="inputGroup-sizing-default">Addresses</span>
-                                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" />
+                                <span class="input-group-text" id="inputGroup-sizing-default">Team Name</span>
+                                <input type="text" id="rtname" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" />
                             </div>
                             <div class="input-group mb-3">
-                                <span class="input-group-text" id="inputGroup-sizing-default">Reveal's Addr.</span>
-                                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" />
+                                <span class="input-group-text" id="inputGroup-sizing-default">Member's Addr. Seprated By ','</span>
+                                <input type="text" id="rtmem" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" />
                             </div>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-success">Create</button>
+                            <button type="button" class="btn btn-success" onClick={getTeamMemberCount}>Create</button>
                         </div>
                     </div>
                 </div>
             </div>
-
-
         </div>
     );
 }
