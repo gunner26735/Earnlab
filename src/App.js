@@ -72,7 +72,7 @@ function App() {
               <Route path="/user" element={<User />} />
               <Route path="/upload" element={<Upload />} />
               <Route path="/teams" element={<Teams />} />
-              <Route path="/teamhome" element={<TeamHome />} />
+              <Route path="/team_home" element={<TeamHome />} />
             </Routes>
           </BrowserRouter>
         </LivepeerConfig>

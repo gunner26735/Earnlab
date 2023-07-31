@@ -24,7 +24,7 @@ function User() {
             provider
         );
         const count = await contractRead.TeamsCreated();
-        console.log(count + " : Current Team");
+        //console.log(count + " : Current Team");
     }
 
     return (
